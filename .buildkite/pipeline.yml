@@ -1,0 +1,8 @@
+
+steps:
+- command: echo "Starting scanner"
+  plugins:
+    - peaudecastor/boost-security-scanner#master:
+        docker_create_args: --network=host
+  agents:
+    queue: "checks-runner-stage"
