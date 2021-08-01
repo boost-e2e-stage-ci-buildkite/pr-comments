@@ -1,0 +1,11 @@
+{
+    "violation-policy": [
+        {
+            "rules": {
+                "gcp-gcs-logs-off": "alert",
+                "gcp-gcs-anon-or-public": "alert",
+                "dangerous-function-deserialization": "alert"
+            }
+        }
+    ]
+}
