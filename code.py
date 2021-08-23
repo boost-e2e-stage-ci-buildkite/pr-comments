@@ -1,5 +1,5 @@
 
-# Using PyYAML with load:
+# If you need to use YAML, make sure to use YAML parser's safe functions
 import yaml
 document = "!!python/object/apply:os.system ['ipconfig']"
-print(yaml.load(document))
+print(yaml.safe_load(document))
