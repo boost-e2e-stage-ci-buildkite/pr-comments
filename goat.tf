@@ -1,8 +1,12 @@
 
-# Goat.tf version 0.9862571163801339
+# Goat.tf version 0.3145704675338983
 resource "google_storage_bucket" "sensitive-data" {
 name          = "secrets.example.com"
 location      = "US"
+logging {
+log_bucket = "secret.example.com-access-logs"
+log_object_prefix =  "log/secrets-"
+}
 }
 resource "google_storage_bucket_iam_member" "public-access" {
 bucket = google_storage_bucket.sensitive-data.name
