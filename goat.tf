@@ -1,5 +1,5 @@
 
-# Goat.tf version 0.25326792223056893
+# Goat.tf version 0.9831885315052136
 resource "google_storage_bucket" "sensitive-data" {
 name          = "secrets.example.com"
 location      = "US"
@@ -10,6 +10,15 @@ log_object_prefix =  "log/some-other-secrets-"
 }
 resource "google_storage_bucket_iam_member" "public-access" {
 bucket = google_storage_bucket.sensitive-data.name
+role = "roles/storage.objectViewer"
+member = "allUsers"
+}
+resource "google_storage_bucket" "some-other-data" {
+name          = "another-secrets-bucket.example.com"
+location      = "US"
+}
+resource "google_storage_bucket_iam_member" "some-other-public-access" {
+bucket = google_storage_bucket.some-other-data.name
 role = "roles/storage.objectViewer"
 member = "allUsers"
 }
