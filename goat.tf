@@ -1,5 +1,5 @@
 
-# Goat.tf version 0.22334982758913147
+# Goat.tf version 0.49531249528854127
 resource "google_storage_bucket" "sensitive-data" {
 name          = "secrets.example.com"
 location      = "US"
@@ -16,9 +16,4 @@ member = "allUsers"
 resource "google_storage_bucket" "some-other-data" {
 name          = "another-secrets-bucket.example.com"
 location      = "US"
-}
-resource "google_storage_bucket_iam_member" "some-other-public-access" {
-bucket = google_storage_bucket.some-other-data.name
-role = "roles/storage.objectViewer"
-member = "allUsers"
 }
